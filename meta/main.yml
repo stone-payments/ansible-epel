@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  author: Bernardo Donadio
+  description: Install EPEL repository on Enterprise Linux
+  company: Stone Pagamentos S.A.
+  license: MIT license
+  platforms:
+    - name: EL
+      versions:
+      - 5
+      - 6
+      - 7
+  galaxy_tags:
+    - packaging
+    - epel
+    - repository
+    - repo
+dependencies: []
