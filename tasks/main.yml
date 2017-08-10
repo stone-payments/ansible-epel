@@ -18,4 +18,3 @@
   retries: 5
   delay: 10
   when: not repo.stat.exists
-
