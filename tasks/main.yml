@@ -1,4 +1,9 @@
 ---
+- name: install epel-release
+  yum:
+    name: epel-release
+    state: present
+
 - name: determine if EPEL repo is already configured
   stat: path={{ epel_repo_file }}
   register: repo
