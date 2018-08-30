@@ -7,8 +7,5 @@
     baseurl: "{{ epel_repo_url }}"
     gpgkey: "{{ epel_gpg_url }}"
     gpgcheck: "{{ epel_gpg_check }}"
-
-- name: update cache
-  command: yum clean metadata
-  register: yum_result
-  changed_when: yum_result.rc != 0
+  notify:
+    - update cache
