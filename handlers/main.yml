@@ -1,0 +1,3 @@
+---
+- name: update cache
+  command: yum clean metadata
