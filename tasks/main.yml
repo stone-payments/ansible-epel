@@ -1,11 +1,45 @@
 ---
-- name: install EPEL repository
-  yum_repository:
-    name: epel
-    state: present
-    description: EPEL YUM repo
-    baseurl: "{{ epel_repo_url }}"
-    gpgkey: "{{ epel_gpg_url }}"
-    gpgcheck: "{{ epel_gpg_check }}"
-  notify:
-    - update cache
+- name: determine if subscription-manager exists
+  stat:
+    path: "/usr/sbin/subscription-manager"
+  register: sm
+
+- block:
+  - name: ensure EPEL repository from Satellite is absent
+    rhsm_repository:
+      name: "{{ epel_satellite_label }}"
+      state: absent
+    when: epel_satellite_label != "" and sm.stat.exists
+
+  - name: install external EPEL repository
+    yum_repository:
+      name: epel
+      state: present
+      description: EPEL YUM repo
+      baseurl: "{{ epel_repo_url }}"
+      gpgkey: "{{ epel_gpg_url }}"
+      gpgcheck: "{{ epel_gpg_check }}"
+    notify:
+      - update cache
+  when: not epel_satellite
+
+- block:
+  - fail:
+      msg: "The var epel_satellite_label is not set"
+    when: epel_satellite_label == ""
+
+  - name: ensure external EPEL repository config is absent
+    yum_repository:
+      name: epel
+      state: absent
+
+  - name: ensure external EPEL repository package is absent
+    package:
+      name: epel-release
+      state: absent
+
+  - name: install EPEL repository from Satellite
+    rhsm_repository:
+      name: "{{ epel_satellite_label }}"
+      state: present
+  when: epel_satellite
