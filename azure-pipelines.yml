@@ -6,12 +6,11 @@
 trigger:
 - molecule_test
 
-pool:
-  vmImage: ubuntu-latest
-
+pool: Services-Pool
+  
 steps:
 
-- script: python -m pip install "molecule[docker,lint]" "ansible" "docker" "ansible-lint" 
+- script: python -m pip install "molecule[podman,lint]" "ansible" "podman" "ansible-lint" 
   displayName: Install dependencies
   
 - script: molecule test
