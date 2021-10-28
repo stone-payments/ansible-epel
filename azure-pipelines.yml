@@ -11,7 +11,7 @@ pool:
 
 steps:
 
-- script: python -m pip install "molecule[docker,lint]"
+- script: python -m pip install "molecule[docker,lint]" "docker" "ansible-lint"
   displayName: Install dependencies
   
 - script: molecule test
