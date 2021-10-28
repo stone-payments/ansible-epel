@@ -18,6 +18,7 @@ steps:
   displayName: Install dependencies
   
 - script: |
+    source scl_source enable rh-python38
     . venv/bin/activate
     molecule test
   displayName: 'Run molecule test'
