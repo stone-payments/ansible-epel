@@ -10,8 +10,13 @@ pool: Services-Pool
   
 steps:
 
-- script: python -m pip install "molecule[podman,lint]" "ansible" "podman" "ansible-lint" 
+- script: | 
+    python3 -m venv venv
+    . venv/bin/activate 
+    python3 -m pip install "molecule[podman,lint]" "ansible" "podman" "ansible-lint"
   displayName: Install dependencies
   
-- script: molecule test
+- script: |
+    . venv/bin/activate
+    molecule test
   displayName: 'Run molecule test'
