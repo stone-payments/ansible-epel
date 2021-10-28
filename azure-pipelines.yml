@@ -10,5 +10,9 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+
+- script: python -m pip install "molecule[docker,lint]"
+  displayName: Install dependencies
+  
 - script: molecule test
   displayName: 'Run molecule test'
