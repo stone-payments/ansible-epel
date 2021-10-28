@@ -15,10 +15,11 @@ steps:
     python3 -m venv venv
     . venv/bin/activate 
     python3 -m pip install "molecule[podman,lint]" "ansible" "podman" "ansible-lint"
+    molecule test
   displayName: Install dependencies
   
 - script: |
     source scl_source enable rh-python38
     . venv/bin/activate
-    molecule test
+#    molecule test
   displayName: 'Run molecule test'
