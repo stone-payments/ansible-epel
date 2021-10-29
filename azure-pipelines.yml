@@ -13,7 +13,8 @@ steps:
 - script: |
     source scl_source enable rh-python38
     python3 -m venv venv
-    . venv/bin/activate 
+    . venv/bin/activate
+    pip install --upgrade pip
     python3 -m pip install "molecule[podman,lint]" "ansible" "podman" "ansible-lint"
     molecule test
   displayName: Install dependencies
