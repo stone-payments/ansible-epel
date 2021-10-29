@@ -1,4 +1,8 @@
 ---
+ignore: |
+  /bin/*
+  ./venv/*
+
 # Based on ansible-lint config
 extends: default
 
