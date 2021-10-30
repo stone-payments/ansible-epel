@@ -9,8 +9,6 @@ platforms:
     pre_build_image: true
 provisioner:
   name: ansible
-  # options:
-  #   interpreter_python: /opt/rh/rh-python38/root/bin/python3.8
 verifier:
   name: ansible
 lint: |
