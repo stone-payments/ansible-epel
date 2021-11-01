@@ -22,6 +22,20 @@ epel_satellite_label: "" #when epel_satellite is true:  add repo with subscripti
 
 None.
 
+
+## Testing
+
+This function implements tests with [`molecule`](https://molecule.readthedocs.io/en/latest/index.html) together with the `ansible` and `podman` modules. Notice that we only support Molecule 2.0 or greater. You can install molecule with:
+
+
+```
+python3 -m pip install "molecule[podman,lint]" "ansible" "podman" "ansible-lint"
+```
+After having Molecule setup, you can run the tests with this step:
+
+```
+molecule test
+```
 ## Example Playbook
 
     - hosts: servers
