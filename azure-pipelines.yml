@@ -7,7 +7,7 @@ trigger:
 - molecule_test
 
 pool: Services-Pool
-  
+
 steps:
 
 - script: |
@@ -17,10 +17,9 @@ steps:
     pip install --upgrade pip
     python3 -m pip install "molecule[podman,lint]" "ansible" "podman" "ansible-lint"
   displayName: Install dependencies
-  
+
 - script: |
     source scl_source enable rh-python38
     . ../venv/bin/activate
     molecule test
-  workingDirectory: 
   displayName: 'Run molecule test'
