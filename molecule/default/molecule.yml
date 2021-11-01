@@ -10,10 +10,6 @@ platforms:
     privileged: true
 provisioner:
   name: ansible
-  config_options:
-    defaults:
-      local_tmp: /tmp
-      remote_tmp: /tmp
 verifier:
   name: ansible
 lint: |
