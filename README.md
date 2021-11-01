@@ -25,7 +25,12 @@ None.
 
 ## Testing
 
-This function implements tests with [`molecule`](https://molecule.readthedocs.io/en/latest/index.html) together with the `ansible` and `podman` modules. Notice that we only support Molecule 2.0 or greater. You can install molecule with:
+This function implements tests with [Molecule](https://molecule.readthedocs.io/en/latest/index.html) together with the `ansible` and `podman` modules. Notice that we only support Molecule 2.0 or greater.
+
+Additionally, until this moment we only support role running the molecule default scenario and Each new PR will run this test like de pre-validation tests.
+
+
+You can install molecule with:
 
 
 ```
@@ -36,6 +41,7 @@ After having Molecule setup, you can run the tests with this step:
 ```
 molecule test
 ```
+
 ## Example Playbook
 
     - hosts: servers
