@@ -4,7 +4,10 @@
 # https://aka.ms/yaml
 
 trigger:
-- molecule_test
+  branches:
+    include: master
+  paths: 
+    exclude: '*.md'
 
 pool: Services-Pool
 
