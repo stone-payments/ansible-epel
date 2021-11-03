@@ -1,5 +1,8 @@
 ---
 galaxy_info:
+  min_ansible_version: 2.9
+  role_name: ansible_epel
+  namespace: stone_payments
   author: Bernardo Donadio
   description: Install EPEL repository on Enterprise Linux
   company: Stone Pagamentos S.A.

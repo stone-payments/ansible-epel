@@ -1,0 +1,28 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  branches:
+    include: master
+  paths: 
+    exclude: '*.md'
+
+pool: Services-Pool
+
+steps:
+
+- script: |
+    source scl_source enable rh-python38
+    python3 -m venv ../venv
+    . ../venv/bin/activate
+    pip install --upgrade pip
+    python3 -m pip install "molecule[podman,lint]" "ansible" "podman" "ansible-lint"
+  displayName: Install dependencies
+
+- script: |
+    source scl_source enable rh-python38
+    . ../venv/bin/activate
+    molecule test
+  displayName: 'Run molecule test'
