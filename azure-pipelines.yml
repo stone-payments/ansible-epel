@@ -5,9 +5,9 @@
 
 trigger:
   branches:
-    include: master
-  paths: 
-    exclude: '*.md'
+    include: [ 'master' ]
+  paths:
+    exclude: [ 'README.md' ]
 
 pool: Services-Pool
 
