@@ -26,3 +26,16 @@ steps:
     . ../venv/bin/activate
     molecule test
   displayName: 'Run molecule test'
+
+- task: mspremier.CreateWorkItem.CreateWorkItem-task.CreateWorkItem@1
+  displayName: 'APPLICATION: Create bug item'
+  condition: failed()
+  inputs:
+    teamProject: 'technology-infrastructure-services'
+    workItemType: bug
+    title: 'DCStatus: Error on $(System.StageName) [$(Agent.MachineName)]'
+    assignedTo: Bruno Raphael do Valle Xavier <bruno.valle@stone.com.br>
+    fieldMappings: |
+      System Info = Um erro foi encontrado no Deploy da Aplicação! Deseja conferir os detalhes clique em https://stonepagamentos.visualstudio.com/technology-infrastructure-services/_build/results?buildId=$(Build.BuildId)&view=results
+      Found In = $(Build.BuildId)
+      Environment = ${{parameters.AZURE_DEVOPS_ENVIRONMENT_TAG}}
