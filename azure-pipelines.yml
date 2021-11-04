@@ -32,10 +32,10 @@ steps:
   condition: failed()
   inputs:
     teamProject: 'technology-infrastructure-services'
+    area path: 'technology-infrastructure-services\tis-automation'
     workItemType: bug
-    title: 'DCStatus: Error on $(System.StageName) [$(Agent.MachineName)]'
-    assignedTo: Bruno Raphael do Valle Xavier <bruno.valle@stone.com.br>
+    title: 'Ansible-epel: Error on $(System.StageName) [$(Agent.MachineName)]'
     fieldMappings: |
-      System Info = Um erro foi encontrado no Deploy da Aplicação! Deseja conferir os detalhes clique em https://stonepagamentos.visualstudio.com/technology-infrastructure-services/_build/results?buildId=$(Build.BuildId)&view=results
+      System Info = An error was found in the application deployment! Want to see the details? Click here https://stonepagamentos.visualstudio.com/technology-infrastructure-services/_build/results?buildId=$(Build.BuildId)&view=results
       Found In = $(Build.BuildId)
-      Environment = ${{parameters.AZURE_DEVOPS_ENVIRONMENT_TAG}}
+    
