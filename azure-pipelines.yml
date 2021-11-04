@@ -32,10 +32,10 @@ steps:
   condition: failed()
   inputs:
     teamProject: 'technology-infrastructure-services'
-    area path: 'technology-infrastructure-services\\tis-automation'
+    area path: 'technology-infrastructure-services\\\\tis-automation'
     workItemType: bug
     title: 'Ansible-epel: Error on molecule test'
     fieldMappings: |
-      Description = An error was found in the application deployment! Want to see the details? Click here https://stonepagamentos.visualstudio.com/technology-infrastructure-services/_build/results?buildId=$(Build.BuildId)&view=results
+      Description = An error was found in the application deployment!
       Product = Automation
     
