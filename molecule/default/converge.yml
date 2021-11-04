@@ -4,4 +4,4 @@
   tasks:
     - name: "Include ansible-epel"
       include_role:
-        name: "stone_payments.ansible_epel"
+        name: "ston_payments.ansible_epel"
