@@ -26,3 +26,16 @@ steps:
     . ../venv/bin/activate
     molecule test
   displayName: 'Run molecule test'
+
+- task: mspremier.CreateWorkItem.CreateWorkItem-task.CreateWorkItem@1
+  displayName: 'APPLICATION: Create bug item'
+  condition: failed()
+  inputs:
+    teamProject: 'technology-infrastructure-services'
+    area path: 'technology-infrastructure-services\\\\tis-automation'
+    workItemType: bug
+    title: 'Ansible-epel: Error on molecule test'
+    fieldMappings: |
+      Description = An error was found in the application deployment!
+      Product = Automation
+    
