@@ -9,7 +9,7 @@
     rhsm_repository:
       name: "{{ epel_satellite_label }}"
       state: absent
-    when: not epel_satellite_label | string and sm.stat.exists
+    when: epel_satellite_label | length > 0 and sm.stat.exists
 
   - name: install external EPEL repository
     yum_repository:
@@ -24,10 +24,10 @@
   when: not epel_satellite
 
 - block:
-  - name: variable is not set
+  - name: Check var epel_satellite_label is set
     fail:
       msg: "The var epel_satellite_label is not set"
-    when: epel_satellite_label | string
+    when: epel_satellite_label |length == 0
 
   - name: ensure external EPEL repository config is absent
     yum_repository:
