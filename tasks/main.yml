@@ -42,5 +42,5 @@
   - name: install EPEL repository from Satellite
     rhsm_repository:
       name: "{{ epel_satellite_label }}"
-      state: present
+      state: enabled
   when: epel_satellite
