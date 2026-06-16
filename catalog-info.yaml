@@ -1,16 +1,18 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-    name: ansible-epel
-    title: Ansible EPEL Role
-    description: Ansible role to Install the EPEL repository (Extra Packages for Enterprise Linux) for RHEL/CentOS.
-    namespace: stone
-    tags:
-      - iac-library
-      - ansible
-    annotations:
-      legacy.stone.tech/owner-email: foundation.platform@stone.com.br
+  name: ansible-epel
+  title: Ansible EPEL Role
+  description: Ansible role to Install the EPEL repository (Extra Packages for Enterprise Linux) for RHEL/CentOS.
+  namespace: stone
+  tags:
+    - iac-library
+    - ansible
+  annotations:
+    legacy.stone.tech/owner-email: foundation.platform@stone.com.br
+    grafana/dashboard-selector: DORA
+    oculus.stone.tech/configured: "true"
 spec:
-    type: library
-    lifecycle: production
-    owner: stone-payments/tis-automation
+  type: library
+  lifecycle: production
+  owner: stone-payments/tis-automation
